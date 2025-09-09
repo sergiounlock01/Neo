@@ -1,0 +1,329 @@
+[index.html](https://github.com/user-attachments/files/22244806/index.html)
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateliê Ivete Rodrigues - Costura e Confecção</title>
+    <style>
+        /* === RESET E CONFIGURAÇÕES GLOBAIS === */
+        :root {
+            --cor-primaria: #6d4c41; /* Marrom aconchegante */
+            --cor-secundaria: #a1887f; /* Tom de linho/bege */
+            --cor-destaque: #d4a276; /* Dourado/Caramelo */
+            --cor-fundo: #fdfaf6; /* Fundo levemente off-white */
+            --cor-texto: #3e2723;
+            --cor-texto-claro: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        /* === CONTAINER E LAYOUT GERAL === */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1, h2, h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--cor-primaria);
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+        
+        h1 { font-size: 2.8rem; }
+        h2 { font-size: 2.2rem; }
+        p { margin-bottom: 15px; max-width: 700px; }
+
+        /* === CABEÇALHO E NAVEGAÇÃO === */
+        header {
+            background-color: rgba(253, 250, 246, 0.9);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid #e0d8cd;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: var(--cor-primaria);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--cor-primaria);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--cor-destaque);
+        }
+
+        /* === SEÇÃO HERO (INICIAL) === */
+        #hero {
+            background-image: linear-gradient(to right, var(--cor-secundaria), var(--cor-destaque));
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        #hero h1 {
+            color: var(--cor-texto-claro);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #5a382e;
+        }
+
+        /* === SEÇÕES DE CONTEÚDO === */
+        .content-flex {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .content-text {
+            flex: 1;
+            min-width: 300px;
+        }
+        .content-info-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 5px solid var(--cor-destaque);
+        }
+        .content-info-box p {
+            margin-bottom: 10px;
+        }
+        .content-info-box strong {
+            color: var(--cor-primaria);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid var(--cor-destaque);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            color: var(--cor-primaria);
+        }
+
+        /* === SEÇÃO DE CONTATO === */
+        #contato {
+            text-align: center;
+            background-color: #fff;
+        }
+        .contact-button {
+            display: inline-block;
+            background-color: #25d366; /* Cor do WhatsApp */
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+        .contact-button:hover {
+            transform: scale(1.05);
+        }
+
+        /* === RODAPÉ === */
+        footer {
+            background-color: var(--cor-primaria);
+            color: var(--cor-texto-claro);
+            text-align: center;
+            padding: 30px 0;
+            font-size: 0.9rem;
+        }
+        footer p {
+            margin-bottom: 5px;
+            max-width: 100%;
+        }
+
+        /* === RESPONSIVIDADE === */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                width: 100%;
+            }
+
+            .nav-links li {
+                margin: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Ateliê Ivete Rodrigues</a>
+                <ul class="nav-links">
+                    <li><a href="#sobre-mim">Sobre Mim</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <h1>Arte e cuidado em cada ponto</h1>
+                <p>Confecção sob medida, ajustes e reparos com a qualidade e a atenção que suas roupas merecem.</p>
+                <a href="#contato" class="cta-button">Faça um Orçamento via WhatsApp</a>
+            </div>
+        </section>
+        
+        <section id="sobre-mim">
+            <div class="container">
+                <h2>Sobre Mim</h2>
+                <div class="content-flex">
+                    <div class="content-text">
+                        <p>Olá, sou Ivete Aparecida Rodrigues. Desde muito cedo, a arte da costura faz parte da minha vida. O que começou como um passatempo se transformou em uma paixão e, hoje, em minha profissão.</p>
+                        <p>No meu ateliê, cada peça é tratada com exclusividade. Acredito que uma roupa bem ajustada ou criada sob medida tem o poder de realçar a beleza e a confiança de cada pessoa. Meu compromisso é com a qualidade do acabamento, a precisão nos detalhes e, acima de tudo, a sua satisfação.</p>
+                    </div>
+                    <div class="content-info-box">
+                        <p><strong>Nome:</strong> Ivete Aparecida Rodrigues</p>
+                        <p><strong>Email:</strong> <a href="mailto:[SEU_EMAIL]">[SEU_EMAIL]</a></p>
+                        <p><strong>Telefone:</strong> <a href="tel:+55[SEU_TELEFONE_COM_DDD]">[SEU_TELEFONE_COM_DDD]</a></p>
+                        <p><strong>Endereço de Atendimento:</strong></p>
+                        <p>Av. das Nações Unidas, Cidade Monções<br>SÃO PAULO - SP, 04578-000</p>
+                        <p><em>(Atendimento com hora marcada)</em></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="servicos">
+            <div class="container">
+                <h2 style="text-align: center;">Meus Serviços</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Ajustes e Reparos</h3>
+                        <p>Serviços de ajustes para um caimento perfeito: bainhas, pences, troca de zíperes e reparos em geral para que suas roupas favoritas durem muito mais.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Confecção Sob Medida</h3>
+                        <p>Criação de peças exclusivas, do casual à alfaiataria. Traga sua ideia, desenho ou referência e vamos criar juntas uma roupa que é a sua cara.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Roupas de Festa</h3>
+                        <p>Desenvolvimento e confecção de vestidos e trajes para casamentos, formaturas e ocasiões especiais, garantindo elegância e um ajuste impecável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato">
+            <div class="container">
+                <h2>Vamos conversar sobre sua ideia?</h2>
+                <p>Envie uma foto da sua peça ou sua inspiração pelo WhatsApp para um orçamento rápido e sem compromisso. Clique no botão abaixo!</p>
+                <a href="https://wa.me/55[SEU_TELEFONE_COM_DDD]?text=Olá,%20gostaria%20de%20fazer%20um%20orçamento." class="contact-button" target="_blank">
+                    Iniciar Conversa no WhatsApp
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Ateliê Ivete Rodrigues. Todos os direitos reservados.</p>
+            <p><strong>CPF:</strong> 077.578.526-17</p>
+            <p>Av. das Nações Unidas, Cidade Monções, SÃO PAULO - SP, 04578-000</p>
+        </div>
+    </footer>
+
+</body>
+</html>
